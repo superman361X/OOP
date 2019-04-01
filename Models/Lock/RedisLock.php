@@ -55,7 +55,7 @@ class RedisLock
      */
     public function unlock($key)
     {
-        //return $this->_redis->del($key);
+        return $this->_redis->del($key);
     }
 
 

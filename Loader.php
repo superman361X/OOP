@@ -6,9 +6,11 @@ class Loader
     {
         try {
             $file = $class . '.php';
+            $file = str_replace("\\", "/", $file);
             if (is_file($file)) {
                 require_once($file);
             }
+
         } catch (\Throwable $e) {
             echo $e->getMessage();
         }
