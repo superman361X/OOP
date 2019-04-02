@@ -21,25 +21,40 @@ class Send
 
     public function run()
     {
-        $this->channel->queue_declare('hello', false, false, false, false);
 
+        $this->channel->exchange_declare(
+            'zc_exchange',
+            'fanout',
+            false,
+            true
+        );
+
+        $this->channel->queue_declare(
+            'order_queue',
+            false,
+            true,
+            false,
+            false
+        );
 
         $msg = new AMQPMessage();
         $i = 0;
-        while (1) {
+        while (true) {
 
             $data = [
                 'id' => $i,
-                'name' => '杜三炮',
+                'name' => 'San',
                 'age' => 20,
-                'sex' => '男'
+                'sex' => 'man'
             ];
             $msg->setBody(json_encode($data, JSON_UNESCAPED_UNICODE));
-            $this->channel->basic_publish($msg, '', 'hello');
+            $msg->set('delivery_mode', AMQPMessage::DELIVERY_MODE_PERSISTENT);
+
+            $this->channel->basic_publish($msg, 'zc_exchange', 'zc_key');
 
             $i++;
             echo " $i : [x] Sent 'Hello World!'<br/>";
-            if ($i > 15) break;
+            if ($i >= 10) break;
 
         }
     }

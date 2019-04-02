@@ -2,8 +2,10 @@
 
 namespace Controller;
 
+use Models\RabbitMQ\Publish;
 use \Models\RabbitMQ\Send;
 use \Models\RabbitMQ\Receive;
+use Models\RabbitMQ\Subscribe;
 
 class Rabbit
 {
@@ -14,30 +16,24 @@ class Rabbit
         $mq->run();
     }
 
-    public function run1()
+    public function receive()
     {
         $mq = new Receive();
-        $mq->run1();
+        $mq->run();
     }
 
 
-    public function run2()
+    public function pub()
     {
-        $mq = new Receive();
-        $mq->run2();
+        $mq = new Publish();
+        $mq->run();
     }
 
-    public function run3()
-    {
-        $mq = new Receive();
-        $mq->run3();
-    }
 
-    public function run4()
+    public function sub()
     {
-        $mq = new Receive();
-        $mq->run4();
+        $mq = new Subscribe();
+        $mq->run();
     }
-
 
 }

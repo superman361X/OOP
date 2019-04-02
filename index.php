@@ -1,6 +1,6 @@
 <?php
 
-define('ROOT', dirname(__FILE__));
+//define('ROOT', dirname(__FILE__));
 
 require_once "Common/functions.php";
 require_once "Loader.php";
@@ -22,3 +22,7 @@ try {
 } catch (Exception $e) {
     echo $e->getMessage();
 }
+
+
+
+//http://zc.kkk.cc/rabbit/send
