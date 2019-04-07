@@ -40,7 +40,7 @@ class Lock
         try {
 
             $config = array(
-                'host' => '127.0.0.1',
+                'host' => '47.106.156.73',
                 'port' => 6379,
                 'index' => 0,
                 'auth' => 'int@1515',
@@ -60,7 +60,7 @@ class Lock
 
             if ($is_lock) {
                 //todo 正常的业务逻辑处理
-                sleep(5);
+                sleep(15);
                 //todo 业务逻辑处理完毕解锁
                 $oRedisLock->unlock($key);
             } else {

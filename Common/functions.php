@@ -1,4 +1,5 @@
 <?php
+namespace Common;
 
 if (!function_exists('dump')) {
 
