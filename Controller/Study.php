@@ -95,9 +95,20 @@ class Study
         print_r($arr);
     }
 
+
+    public function t8()
+    {
+        static $i = 0;
+        echo $i;
+        $i++;
+        if ($i < 10) {
+            $this->t8();
+        }
+    }
+
 }
 
-
+$o = new Study();
 //t1();
 //t2();
 //print_r(t3('.'));
@@ -105,3 +116,4 @@ class Study
 //t5();
 //t6();
 //t7();
+$o->t8();

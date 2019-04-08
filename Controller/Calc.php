@@ -3,6 +3,8 @@
 namespace Controller;
 
 
+use function Common\dump;
+
 class Calc
 {
     /**
@@ -62,5 +64,18 @@ class Calc
         dump($arr);
     }
 
+
+    public function calc3($m = 100, $n = 7)
+    {
+        $arr = range(1, $n);
+        $i = 0;
+        while (count($arr) > 1) {
+            //遍历数组，判断当前猴子是否为出局序号，如果是则出局，否则放到数组最后
+            (($i + 1) % $m != 0) && array_push($arr, $arr[$i]);
+            unset($arr[$i]);
+            $i++;
+        }
+        return $arr[$i];
+    }
 
 }
