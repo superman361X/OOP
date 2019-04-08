@@ -68,7 +68,7 @@ class t
     }
 
 
-    function king($n, $m)
+    function t5($n, $m)
     {
         $arr = range(1, $n);
         //$arr = [2, 1, 3, 13, 4, 5, 9];
@@ -95,24 +95,6 @@ class t
     }
 
 
-    public function h()
-    {
-        $n = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-        $m = 3;
-        $i = 1;
-        while (count($n) > 1) {
-            if ($i % $m != 0) {
-                array_push($n, $n[$i - 1]);
-            }
-            unset($n[$i - 1]);
-            $i++;
-        }
-
-        return $n[$i - 1];
-    }
-
-
-
 }
 
 
@@ -126,10 +108,5 @@ $o = new t();
 //print_r($o->t4(18, 81));
 //echo PHP_EOL;
 
-print_r($o->king(9, 3));
+echo $o->t5(12, 4);
 echo PHP_EOL;
-
-print_r($o->h());
-echo PHP_EOL;
-//$o->t8();
-//echo PHP_EOL;
