@@ -12,17 +12,10 @@ list($a, $b, $c, $d) = explode("/", $_SERVER['REQUEST_URI']);
 $ctxName = "\\Controller\\" . ucfirst(strtolower($b));
 $funName = strtolower($c);
 
-try {
-    if (class_exists($ctxName) && method_exists($ctxName, $funName)) {
-        (new $ctxName())->$funName();
-    } else {
-        throw new Exception('Not found');
-    }
-
-} catch (Exception $e) {
-    echo $e->getMessage();
+if (class_exists($ctxName) && method_exists($ctxName, $funName)) {
+    (new $ctxName())->$funName();
+} else {
+    throw new Exception('Not found');
 }
-
-
 
 //http://zc.kkk.cc/rabbit/send
