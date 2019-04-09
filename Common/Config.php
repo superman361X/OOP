@@ -15,7 +15,7 @@ class Config implements \ArrayAccess
     }
 
     //获取配置值
-    function offsetGet($key)
+    public function offsetGet($key)
     {
         if (empty($this->configs[$key])) {
             $file_path = $this->path . '/' . $key . '.php';
@@ -26,19 +26,19 @@ class Config implements \ArrayAccess
     }
 
     //设置配置值
-    function offsetSet($key, $value)
+    public function offsetSet($key, $value)
     {
         throw new \Exception("cannot write config file.");
     }
 
     //检查配置是否存在
-    function offsetExists($key)
+    public function offsetExists($key)
     {
         return isset($this->configs[$key]);
     }
 
     //删除配置
-    function offsetUnset($key)
+    public function offsetUnset($key)
     {
         unset($this->configs[$key]);
     }

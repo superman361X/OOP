@@ -11,4 +11,4 @@ class MyException extends \Exception
 }
 
 
-//set_exception_handler('\Common\MyException::handler');
+set_exception_handler('\Common\MyException::handler');

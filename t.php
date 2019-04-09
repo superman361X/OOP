@@ -94,6 +94,37 @@ class t
         }
     }
 
+    public function king($n, $m)
+    {
+        $arr = range(1, $n);
+        $i = 0;
+        while (count($arr) > 1) {
+            if (($i + 1) % $m != 0) {
+                array_push($arr, $arr[$i]);
+            }
+
+            unset($arr[$i]);
+            $i++;
+        }
+        return $arr[$i];
+    }
+
+
+    public function getTree($data = [], $pid = 0)
+    {
+        $result = [];
+        foreach ($data as $k => $cate) {
+
+            if ($cate['pid'] == $pid) {
+                //父亲找到儿子
+                $cate['child'] = $this->getTree($data, $cate['id']);
+                $result[] = $cate;
+            }
+        }
+
+        return $result;
+    }
+
 
 }
 
@@ -108,5 +139,28 @@ $o = new t();
 //print_r($o->t4(18, 81));
 //echo PHP_EOL;
 
-echo $o->t5(12, 4);
-echo PHP_EOL;
+//echo $o->t5(12, 4);
+//echo PHP_EOL;
+//
+//echo $o->king(12, 4);
+//echo PHP_EOL;
+
+//$arr = [
+//    ['id' => 1, 'pid' => 0, 'name' => '数码'],
+//    ['id' => 2, 'pid' => 0, 'name' => '电器'],
+//    ['id' => 3, 'pid' => 0, 'name' => '服装'],
+//    ['id' => 4, 'pid' => 1, 'name' => '手机'],
+//    ['id' => 5, 'pid' => 1, 'name' => '电脑'],
+//    ['id' => 6, 'pid' => 2, 'name' => '电视'],
+//    ['id' => 7, 'pid' => 2, 'name' => '冰箱'],
+//    ['id' => 8, 'pid' => 3, 'name' => '男装'],
+//    ['id' => 9, 'pid' => 3, 'name' => '女装'],
+//    ['id' => 10, 'pid' => 9, 'name' => '长裙'],
+//    ['id' => 11, 'pid' => 9, 'name' => '短裙'],
+//];
+//$res = $o->getTree($arr, 0);
+//print_r($res);
+
+include 'Common/Pager.php';
+$b = new \Common\Pager(2, 5);
+$b->page();

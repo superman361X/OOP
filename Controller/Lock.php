@@ -4,6 +4,7 @@ namespace Controller;
 
 use \Models\Lock\FileLock;
 use \Models\Lock\RedisLock;
+use Models\Lock\RedisLock2;
 
 class Lock
 {
@@ -34,7 +35,10 @@ class Lock
     }
 
 
-    //Redis锁
+    /**
+     * @deprecated
+     * Redis锁
+     */
     public function redis()
     {
         try {
@@ -71,6 +75,39 @@ class Lock
         } catch (\Exception $e) {
             echo $e->getMessage();
         }
+
+    }
+
+
+    public function redis2()
+    {
+        $random = random_int(1000, 9999);
+        $oRedisLock = new RedisLock2([
+            'host' => '192.168.2.113',
+            'port' => 6379,
+            'index' => 0,
+            'auth' => 'int@1515',
+            'timeout' => 1,
+            'reserved' => NULL,
+            'retry_interval' => 100,
+        ]);
+
+        // 定义锁标识
+        $key = 'myLock';
+
+        // todo 获取锁
+        $is_lock = $oRedisLock->lock($key, $random, 600);
+
+        if ($is_lock) {
+            //todo 正常的业务逻辑处理
+            sleep(3);
+            //todo 业务逻辑处理完毕解锁
+            $oRedisLock->unlock($key, $random);
+        } else {
+            // 获取锁失败
+            throw new \Exception('request too frequently');
+        }
+
 
     }
 }
