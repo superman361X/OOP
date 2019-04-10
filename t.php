@@ -126,6 +126,7 @@ class t
     }
 
 
+
 }
 
 
@@ -161,6 +162,6 @@ $o = new t();
 //$res = $o->getTree($arr, 0);
 //print_r($res);
 
-include 'Common/Pager.php';
-$b = new \Common\Pager(2, 5);
-$b->page();
+//include 'Common/Pager.php';
+//$b = new \Common\Pager(2, 5);
+//$b->page();

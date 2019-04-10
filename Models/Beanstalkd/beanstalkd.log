@@ -1,0 +1,9 @@
+nohup: ignoring input
+nohup: ignoring input
+beanstalkd: net.c:105 in make_server_socket: bind(): Address already in use
+beanstalkd: net.c:105 in make_server_socket: bind(): Address already in use
+beanstalkd: main.c:65 in main: make_server_socket()
+nohup: ignoring input
+beanstalkd: net.c:105 in make_server_socket: bind(): Address already in use
+beanstalkd: net.c:105 in make_server_socket: bind(): Address already in use
+beanstalkd: main.c:65 in main: make_server_socket()
