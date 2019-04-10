@@ -9,7 +9,7 @@ use \Models\Singleton\Singleton;
 use \Models\Factory\Simple;
 use \Models\Factory\IFactory;
 use \Models\Registry\Registry;
-use \Models\Builder\Builder;
+use \Models\Object\Builder;
 
 
 

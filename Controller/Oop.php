@@ -1,0 +1,20 @@
+<?php
+
+namespace Controller;
+
+use \Models\Magic\Object;
+
+class Oop
+{
+
+    public function magic()
+    {
+        $obj = new Object();
+        //$obj->jack('man');
+
+        //Object::luce('woman');
+
+        $obj->name = 'jone';
+        $obj->name;
+    }
+}

@@ -1,6 +1,6 @@
 <?php
 
-namespace Models\Builder;
+namespace Models\Object;
 
 class Person
 {

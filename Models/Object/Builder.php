@@ -1,5 +1,5 @@
 <?php
-namespace Models\Builder;
+namespace Models\Object;
 
 //客户端
 class Builder

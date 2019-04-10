@@ -13,10 +13,13 @@ list($a, $b) = explode("/", $argv[1]);
 $ctxName = "\\Controller\\" . ucfirst(strtolower($a));
 $funName = strtolower($b);
 
-if (class_exists($ctxName) && method_exists($ctxName, $funName)) {
-    (new $ctxName())->$funName();
-} else {
-    throw new Exception('Not found');
+try {
+    if (class_exists($ctxName) && method_exists($ctxName, $funName)) {
+        (new $ctxName())->$funName();
+    } else {
+        throw new Exception('Not found');
+    }
+} catch (Exception $e) {
+    echo $e->getMessage();
 }
-
 //php cli.php rabbit/run1
