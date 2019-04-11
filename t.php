@@ -68,7 +68,7 @@ class t
     }
 
 
-    function t5($n, $m)
+    public function t5($n, $m)
     {
         $arr = range(1, $n);
         //$arr = [2, 1, 3, 13, 4, 5, 9];
@@ -126,6 +126,30 @@ class t
     }
 
 
+    public function t9(string $dir, string $mode): bool
+    {
+        if (is_dir($dir)) {
+            return true;
+        }
+        return mkdir($dir, $mode, true);
+    }
+
+
+    public function lock()
+    {
+        $fp = fopen('demo.txt', 'a+');
+        if (flock($fp, LOCK_EX | LOCK_NB)) {
+            sleep(10);
+            fwrite($fp, time() . '.....' . PHP_EOL);
+            flock($fp, LOCK_UN);
+        } else {
+            echo 'locked....';
+            echo PHP_EOL;
+        }
+
+        fclose($fp);
+
+    }
 
 }
 
@@ -142,7 +166,7 @@ $o = new t();
 
 //echo $o->t5(12, 4);
 //echo PHP_EOL;
-//
+
 //echo $o->king(12, 4);
 //echo PHP_EOL;
 
@@ -165,3 +189,33 @@ $o = new t();
 //include 'Common/Pager.php';
 //$b = new \Common\Pager(2, 5);
 //$b->page();
+//$o->t9('./p/p1/p2/p3/p4/p5/p6', '777');
+//$o->lock();
+
+
+//function url()
+//{
+//    $url = 'https://www.seeedstudio.com/fusion/opl.zip';
+//    print_r ($parse = parse_url($url));
+//    print_r($name = basename($parse['path']));
+//    print_r($exp = explode('.',$name));
+//    print_r($exp[1]);
+//}
+//
+//echo url();
+
+
+function url2()
+{
+    $url = 'https://www.seeedstudio.com/fusion/opl.zip';
+    print_r($parse = parse_url($url));
+    print_r($name = basename($parse['path']));
+    list(, $exp) = explode('.', $name);
+    print_r($exp);
+    echo PHP_EOL;
+}
+
+url2();
+echo PHP_EOL;
+
+echo date('d/m/Y', strtotime('02/28/2019'));

@@ -30,6 +30,12 @@ class RedisLock
      */
     public function lock($key, $expire = 5)
     {
+        for ($i = 1;$i<=100000;$i++){
+            $val = str_pad($i, 8, '0', STR_PAD_LEFT);
+            $this->_redis->set('many:'.$val,$val);
+        }
+
+        exit;
         $is_lock = $this->_redis->setnx($key, time() + $expire);
 
         // 不能获取锁

@@ -45,6 +45,7 @@ class Lock
 
             $config = array(
                 'host' => '47.106.156.73',
+                'host' => '192.168.2.113',
                 'port' => 6379,
                 'index' => 0,
                 'auth' => 'int@1515',
