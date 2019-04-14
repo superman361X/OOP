@@ -12,7 +12,6 @@ use \Models\Registry\Registry;
 use \Models\Object\Builder;
 
 
-
 class Index
 {
 

@@ -29,3 +29,5 @@ abstract class Registry
     }
 
 }
+
+class A implements
