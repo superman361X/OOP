@@ -6,4 +6,5 @@ namespace Models\Observer;
  */
 interface IObServer
 {
-git }
+    public function update($event_info = null);
+}
