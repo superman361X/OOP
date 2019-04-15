@@ -6,7 +6,7 @@ use \Models\Lock\FileLock;
 use \Models\Lock\RedisLock;
 use Models\Lock\RedisLock2;
 
-class Lock
+class Lock extends Base
 {
     //File锁
     public function file()

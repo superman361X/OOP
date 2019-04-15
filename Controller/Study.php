@@ -3,8 +3,9 @@
 namespace Controller;
 
 
-class Study
+class Study extends Base
 {
+
     public function t1()
     {
         for ($i = 1; $i <= 9; $i++) {

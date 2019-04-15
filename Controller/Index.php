@@ -12,7 +12,7 @@ use \Models\Registry\Registry;
 use \Models\Object\Builder;
 
 
-class Index
+class Index extends Base
 {
 
     //单例

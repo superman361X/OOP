@@ -1,0 +1,140 @@
+2019-04-15 03:03:46:stdClass::__set_state(array(
+   'file' => 'D:\\htdocs\\study\\Framework\\cli.php',
+   'line' => 18,
+   'function' => '__destruct',
+   'class' => 'Controller\\Base',
+   'object' => 
+  stdClass::__set_state(array(
+  )),
+   'type' => '->',
+   'args' => 
+  array (
+  ),
+   'time' => 1555297425,
+))
+2019-04-15 03:04:27:array (
+  'file' => 'D:\\htdocs\\study\\Framework\\cli.php',
+  'line' => 18,
+  'function' => '__destruct',
+  'class' => 'Controller\\Base',
+  'object' => 
+  stdClass::__set_state(array(
+  )),
+  'type' => '->',
+  'args' => 
+  array (
+  ),
+  'time' => 1555297466,
+)
+2019-04-15 03:05:14 => stdClass::__set_state(array(
+   'file' => 'D:\\htdocs\\study\\Framework\\cli.php',
+   'line' => 18,
+   'function' => '__destruct',
+   'class' => 'Controller\\Base',
+   'object' => 
+  stdClass::__set_state(array(
+  )),
+   'type' => '->',
+   'args' => 
+  array (
+  ),
+   'time' => 1555297513,
+))
+2019-04-15 03:07:28 => stdClass::__set_state(array(
+   'file' => 'D:\\htdocs\\study\\Framework\\cli.php',
+   'line' => 18,
+   'function' => '__destruct',
+   'class' => 'Controller\\Base',
+   'object' => 
+  stdClass::__set_state(array(
+  )),
+   'type' => '->',
+   'args' => 
+  array (
+  ),
+   'time' => 1555297605,
+))
+2019-04-15 03:07:57 => stdClass::__set_state(array(
+   'file' => 'D:\\htdocs\\study\\Framework\\cli.php',
+   'line' => 18,
+   'function' => '__destruct',
+   'class' => 'Controller\\Base',
+   'object' => 
+  stdClass::__set_state(array(
+  )),
+   'type' => '->',
+   'args' => 
+  array (
+  ),
+   'time' => 1555297639,
+))
+2019-04-15 03:08:01 => stdClass::__set_state(array(
+   'file' => 'D:\\htdocs\\study\\Framework\\cli.php',
+   'line' => 18,
+   'function' => '__destruct',
+   'class' => 'Controller\\Base',
+   'object' => 
+  stdClass::__set_state(array(
+  )),
+   'type' => '->',
+   'args' => 
+  array (
+  ),
+   'time' => 1555297681,
+))
+2019-04-15 03:08:19 => stdClass::__set_state(array(
+   'file' => 'D:\\htdocs\\study\\Framework\\cli.php',
+   'line' => 18,
+   'function' => '__destruct',
+   'class' => 'Controller\\Base',
+   'object' => 
+  stdClass::__set_state(array(
+  )),
+   'type' => '->',
+   'args' => 
+  array (
+  ),
+   'time' => 1555297605,
+))
+2019-04-15 03:19:24 => stdClass::__set_state(array(
+   'file' => 'D:\\htdocs\\study\\Framework\\cli.php',
+   'line' => 18,
+   'function' => '__construct',
+   'class' => 'Controller\\Base',
+   'object' => 
+  stdClass::__set_state(array(
+  )),
+   'type' => '->',
+   'args' => 
+  array (
+  ),
+   'time' => 1555298364,
+))
+2019-04-15 03:38:53 => stdClass::__set_state(array(
+   'file' => 'D:\\htdocs\\study\\Framework\\cli.php',
+   'line' => 18,
+   'function' => '__construct',
+   'class' => 'Controller\\Base',
+   'object' => 
+  stdClass::__set_state(array(
+  )),
+   'type' => '->',
+   'args' => 
+  array (
+  ),
+   'time' => 1555299535,
+))
+2019-04-15 03:39:13 => stdClass::__set_state(array(
+   'file' => 'D:\\htdocs\\study\\Framework\\cli.php',
+   'line' => 18,
+   'function' => '__construct',
+   'class' => 'Controller\\Base',
+   'object' => 
+  stdClass::__set_state(array(
+  )),
+   'type' => '->',
+   'args' => 
+  array (
+  ),
+   'time' => 1555299555,
+))

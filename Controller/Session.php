@@ -3,7 +3,7 @@
 namespace Controller;
 
 
-class Session
+class Session extends Base
 {
 
     public function cookie()

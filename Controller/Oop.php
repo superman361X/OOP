@@ -4,7 +4,7 @@ namespace Controller;
 
 use \Models\Magic\Object;
 
-class Oop
+class Oop extends Base
 {
 
     public function magic()

@@ -5,7 +5,7 @@ namespace Controller;
 
 use Models\Auth\JwtAuth;
 
-class Auth
+class Auth extends Base
 {
     public function jwt1()
     {

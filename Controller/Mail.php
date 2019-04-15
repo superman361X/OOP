@@ -7,7 +7,7 @@ use Models\Mailer\Mailer;
 use PhpAmqpLib\Connection\AMQPStreamConnection;
 use PhpAmqpLib\Message\AMQPMessage;
 
-class Mail
+class Mail extends Base
 {
     public function send()
     {

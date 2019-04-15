@@ -5,7 +5,7 @@ namespace Controller;
 
 use function Common\dump;
 
-class Calc
+class Calc extends Base
 {
     /**
      * 冒泡排序原理：

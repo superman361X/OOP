@@ -2,9 +2,9 @@
 
 //define('ROOT', dirname(__FILE__));
 
-require_once "Common/functions.php";
-require_once "Loader.php";
-require_once "Common/MyException.php";
+require_once __DIR__ . "/Common/functions.php";
+require_once __DIR__ . "/Loader.php";
+require_once __DIR__ . "/Common/MyException.php";
 require_once __DIR__ . '/vendor/autoload.php';
 
 

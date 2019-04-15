@@ -8,9 +8,8 @@ use Models\RabbitMQ\Sample;
 use \Models\RabbitMQ\Send;
 use \Models\RabbitMQ\Receive;
 
-class Rabbit
+class Rabbit extends Base
 {
-
     public function fanoutTask()
     {
         $rabbit = new FanoutExchange();

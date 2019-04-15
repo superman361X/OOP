@@ -12,8 +12,8 @@ class Sample extends RabbitMQ
         $this->channel->queue_declare('xxxx', false, true, false, false);
 
         $i = 1;
-        while ($i <= 50){
-            $msg = new AMQPMessage($i .' ==> Hello World!',array('delivery_mode' => AMQPMessage::DELIVERY_MODE_PERSISTENT));
+        while ($i <= 50) {
+            $msg = new AMQPMessage($i . ' ==> Hello World!', array('delivery_mode' => AMQPMessage::DELIVERY_MODE_PERSISTENT));
             $this->channel->basic_publish($msg, '', 'key');
 
             echo " [{$i}][x] Sent 'Hello World!'\n";
@@ -42,21 +42,21 @@ class Sample extends RabbitMQ
         }
     }
 
-//    public function receive2()
-//    {
-//        $this->channel->queue_declare('xxx', false, true, false, false);
-//        echo ' [*] Waiting for messages. To exit press CTRL+C', "\n";
-//
-//        $callback = function ($msg) {
-//            echo " [x] Received ", $msg->body, "\n";
-//        };
-//
-//        $this->channel->basic_consume('hello', '', false, true, false, false, $callback);
-//
-//        while (count($this->channel->callbacks)) {
-//            $this->channel->wait();
-//        }
-//    }
+    public function receive2()
+    {
+        $this->channel->queue_declare('xxx', false, true, false, false);
+        echo ' [*] Waiting for messages. To exit press CTRL+C', "\n";
+
+        $callback = function ($msg) {
+            echo " [x] Received ", $msg->body, "\n";
+        };
+
+        $this->channel->basic_consume('hello', '', false, true, false, false, $callback);
+
+        while (count($this->channel->callbacks)) {
+            $this->channel->wait();
+        }
+    }
 
 
     public function newTask()
@@ -118,4 +118,6 @@ class Sample extends RabbitMQ
             $this->channel->wait();
         }
     }
+
+
 }
