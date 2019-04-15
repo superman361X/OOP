@@ -2,107 +2,113 @@
 
 namespace Controller;
 
-use \Firebase\JWT\JWT;
+
+use Models\Auth\JwtAuth;
 
 class Auth
 {
-    public function t()
+    public function jwt1()
     {
-        $key = "example_key";
-        $token = array(
-            "iss" => "http://example.org",
-            "aud" => "http://example.com",
-            "iat" => 1356999524,
-            "nbf" => 1357000000,
-            "data" => array(
-                "id" => 1,
-                "name" => 'xxx',
-                "age" => '20',
-                "sex" => 'x'
-            )
-        );
-
-        /**
-         * IMPORTANT:
-         * You must specify supported algorithms for your application. See
-         * https://tools.ietf.org/html/draft-ietf-jose-json-web-algorithms-40
-         * for a list of spec-compliant algorithms.
-         */
-        $jwt = JWT::encode($token, $key);
-        echo $jwt;
-        echo PHP_EOL;
-        $decoded = JWT::decode($jwt, $key, array('HS256'));
-
-        print_r($decoded);
-        echo PHP_EOL;
-        /*
-         NOTE: This will now be an object instead of an associative array. To get
-         an associative array, you will need to cast it as such:
-        */
-
-        $decoded_array = (array)$decoded;
-
-        /**
-         * You can add a leeway to account for when there is a clock skew times between
-         * the signing and verifying servers. It is recommended that this leeway should
-         * not be bigger than a few minutes.
-         *
-         * Source: http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html#nbfDef
-         */
-        JWT::$leeway = 1; // $leeway in seconds
-        $decoded = JWT::decode($jwt, $key, array('HS256'));
-        print_r($decoded);
+        (new JwtAuth())->HS256();
     }
 
 
-    public function t2()
+    public function jwt2()
     {
-        $privateKey = <<<EOD
------BEGIN RSA PRIVATE KEY-----
-MIICXAIBAAKBgQC8kGa1pSjbSYZVebtTRBLxBz5H4i2p/llLCrEeQhta5kaQu/Rn
-vuER4W8oDH3+3iuIYW4VQAzyqFpwuzjkDI+17t5t0tyazyZ8JXw+KgXTxldMPEL9
-5+qVhgXvwtihXC1c5oGbRlEDvDF6Sa53rcFVsYJ4ehde/zUxo6UvS7UrBQIDAQAB
-AoGAb/MXV46XxCFRxNuB8LyAtmLDgi/xRnTAlMHjSACddwkyKem8//8eZtw9fzxz
-bWZ/1/doQOuHBGYZU8aDzzj59FZ78dyzNFoF91hbvZKkg+6wGyd/LrGVEB+Xre0J
-Nil0GReM2AHDNZUYRv+HYJPIOrB0CRczLQsgFJ8K6aAD6F0CQQDzbpjYdx10qgK1
-cP59UHiHjPZYC0loEsk7s+hUmT3QHerAQJMZWC11Qrn2N+ybwwNblDKv+s5qgMQ5
-5tNoQ9IfAkEAxkyffU6ythpg/H0Ixe1I2rd0GbF05biIzO/i77Det3n4YsJVlDck
-ZkcvY3SK2iRIL4c9yY6hlIhs+K9wXTtGWwJBAO9Dskl48mO7woPR9uD22jDpNSwe
-k90OMepTjzSvlhjbfuPN1IdhqvSJTDychRwn1kIJ7LQZgQ8fVz9OCFZ/6qMCQGOb
-qaGwHmUK6xzpUbbacnYrIM6nLSkXgOAwv7XXCojvY614ILTK3iXiLBOxPu5Eu13k
-eUz9sHyD6vkgZzjtxXECQAkp4Xerf5TGfQXGXhxIX52yH+N2LtujCdkQZjXAsGdm
-B2zNzvrlgRmgBrklMTrMYgm1NPcW+bRLGcwgW2PTvNM=
------END RSA PRIVATE KEY-----
-EOD;
+        (new JwtAuth())->RS256();
+    }
 
-        $publicKey = <<<EOD
------BEGIN PUBLIC KEY-----
-MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC8kGa1pSjbSYZVebtTRBLxBz5H
-4i2p/llLCrEeQhta5kaQu/RnvuER4W8oDH3+3iuIYW4VQAzyqFpwuzjkDI+17t5t
-0tyazyZ8JXw+KgXTxldMPEL95+qVhgXvwtihXC1c5oGbRlEDvDF6Sa53rcFVsYJ4
-ehde/zUxo6UvS7UrBQIDAQAB
------END PUBLIC KEY-----
-EOD;
 
-        $token = array(
-            "iss" => "example.org",
-            "aud" => "example.com",
-            "iat" => 1356999524,
-            "nbf" => 1357000000
-        );
+    public function sign()
+    {
+        $param = [
+            'name' => 'luce',
+            'age' => '25',
+            'sex' => 'girl',
+            'time' => strtotime('2019-04-12 11:02:45'),
+            'appid' => 'd930ea5d5a258f4f',
+            'nonce' => 'ibuaiVcKdpRxkhJA',
 
-        $jwt = JWT::encode($token, $privateKey, 'RS256');
-        echo "Encode:\n" . print_r($jwt, true) . "\n";
+        ]; // get all parameters of $_GET and $_POST
 
-        $decoded = JWT::decode($jwt, $publicKey, array('RS256'));
+        //array_shift($param); // cli if the $param[0] is function name, please shift it
 
-        /*
-         NOTE: This will now be an object instead of an associative array. To get
-         an associative array, you will need to cast it as such:
-        */
+//        $new_param = array();
+//        foreach ($param as $k => $v) {
+//            list ($pk, $pv) = explode('=', $v);
+//            $new_param[$pk] = $pv;
+//            unset($param[$k]);
+//        }
 
-        $decoded_array = (array)$decoded;
-        echo "Decode:\n" . print_r($decoded_array, true) . "\n";
+        $secret = '6c9f387bb7e5e382898c3868d261254b'; // this is the secret which our appid applied
+        $param['secret_key'] = $secret; // please add the key 'secret_key', it will be to get sign
+        ksort($param); // this is sort by the key ascending
+        if (isset($param['sign'])) { // is exists sign key, please unset
+            unset($param['sign']);
+        }
 
+        print_r($param);
+        $link = ''; // in the after, return md5($link)
+        foreach ($param as $k => $v) {
+            $k = trim($k);
+            $v = trim($v);
+            if ($v == '') {
+                continue;
+            }
+
+            $link .= "$k=$v&";
+
+        }
+
+        $link = rtrim($link, '&');
+        echo $link;
+        echo PHP_EOL;
+        echo strtoupper(md5($link));
+
+        echo "\n";
+    }
+
+
+    public function signCheck()
+    {
+        //SIGN   5FDC062FD3ECC326BCF8DA2DE57ABE1A
+
+        //SECRET 6c9f387bb7e5e382898c3868d261254b
+
+        $param = [
+            'name' => 'luce',
+            'age' => '25',
+            'sex' => 'girl',
+            'time' => strtotime('2019-04-12 11:02:45'),
+            'appid' => 'd930ea5d5a258f4f',
+            'nonce' => 'ibuaiVcKdpRxkhJA',
+            'sign' => '5FDC062FD3ECC326BCF8DA2DE57ABE1A',
+
+        ];
+
+        $sign = $param['sign'];
+        $secret = '6c9f387bb7e5e382898c3868d261254b'; // this is the secret which our appid applied
+        $param['secret_key'] = $secret; // please add the key 'secret_key', it will be to get sign
+        ksort($param); // this is sort by the key ascending
+        unset($param['sign']);
+
+        print_r($param);
+        $link = ''; // in the after, return md5($link)
+        foreach ($param as $k => $v) {
+            $k = trim($k);
+            $v = trim($v);
+            if ($v == '') {
+                continue;
+            }
+
+            $link .= "$k=$v&";
+
+        }
+
+        $link = rtrim($link, '&');
+        echo strtoupper(md5($link));
+        echo PHP_EOL;
+        $ret = strtoupper(md5($link)) === $sign ?: false ;
+        var_dump($ret);
     }
 }
