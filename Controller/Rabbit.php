@@ -55,4 +55,19 @@ class Rabbit
         $rabbit->receive2();
     }
 
+
+    public function newTask()
+    {
+        (new Sample())->newTask();
+    }
+
+    public function newWorker()
+    {
+        (new Sample())->newWorker();
+    }
+
+    public function newWorker2()
+    {
+        (new Sample())->newWorker2();
+    }
 }

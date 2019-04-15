@@ -164,25 +164,25 @@ $o = new t();
 //print_r($o->t4(18, 81));
 //echo PHP_EOL;
 
-//echo $o->t5(12, 4);
-//echo PHP_EOL;
+echo $o->t5(11, 4);
+echo PHP_EOL;
 
 //echo $o->king(12, 4);
 //echo PHP_EOL;
 
-//$arr = [
-//    ['id' => 1, 'pid' => 0, 'name' => '数码'],
-//    ['id' => 2, 'pid' => 0, 'name' => '电器'],
-//    ['id' => 3, 'pid' => 0, 'name' => '服装'],
-//    ['id' => 4, 'pid' => 1, 'name' => '手机'],
-//    ['id' => 5, 'pid' => 1, 'name' => '电脑'],
-//    ['id' => 6, 'pid' => 2, 'name' => '电视'],
-//    ['id' => 7, 'pid' => 2, 'name' => '冰箱'],
-//    ['id' => 8, 'pid' => 3, 'name' => '男装'],
-//    ['id' => 9, 'pid' => 3, 'name' => '女装'],
-//    ['id' => 10, 'pid' => 9, 'name' => '长裙'],
-//    ['id' => 11, 'pid' => 9, 'name' => '短裙'],
-//];
+$arr = [
+    ['id' => 1, 'pid' => 0, 'name' => '数码'],
+    ['id' => 2, 'pid' => 0, 'name' => '电器'],
+    ['id' => 3, 'pid' => 0, 'name' => '服装'],
+    ['id' => 4, 'pid' => 1, 'name' => '手机'],
+    ['id' => 5, 'pid' => 1, 'name' => '电脑'],
+    ['id' => 6, 'pid' => 2, 'name' => '电视'],
+    ['id' => 7, 'pid' => 2, 'name' => '冰箱'],
+    ['id' => 8, 'pid' => 3, 'name' => '男装'],
+    ['id' => 9, 'pid' => 3, 'name' => '女装'],
+    ['id' => 10, 'pid' => 9, 'name' => '长裙'],
+    ['id' => 11, 'pid' => 9, 'name' => '短裙'],
+];
 //$res = $o->getTree($arr, 0);
 //print_r($res);
 
@@ -218,4 +218,261 @@ function url2()
 url2();
 echo PHP_EOL;
 
-echo date('d/m/Y', strtotime('02/28/2019'));
+//echo date('d/m/Y', strtotime('02/28/2019'));
+
+echo PHP_EOL;
+
+(function () {
+    for ($i = 1; $i <= 9; $i++) {
+        for ($j = 1; $j <= $i; $j++) {
+            echo "$j*$i=" . $i * $j . " ";
+        }
+        echo PHP_EOL;
+    }
+})();
+
+echo PHP_EOL;
+(function ($arr) {
+    for ($i = 0; $i < count($arr); $i++) {
+        for ($j = $i + 1; $j < count($arr); $j++) {
+            if ($arr[$i] > $arr[$j]) {
+                $tmp = $arr[$i];
+                $arr[$i] = $arr[$j];
+                $arr[$j] = $tmp;
+            }
+        }
+    }
+    print_r($arr);
+})([8, 3, 4, 5, 889, 36, 343, 9, 12, 45, 67, 18]);
+echo PHP_EOL;
+
+
+$fun = function ($path) use (&$fun) {
+    $files = [];
+    if ($handler = @opendir($path)) {
+        while (($file = @readdir($handler)) !== false) {
+            if (is_dir($path . '/' . $file) && $file != '.' && $file != '..') {
+                $files[$file] = $fun($path . '/' . $file);
+            } else {
+                $files[] = $file;
+            }
+        }
+    }
+    return $files;
+};
+$result = $fun('.');
+//print_r($result);
+
+echo PHP_EOL;
+
+echo (function ($n, $m) {
+    $arr = range(1, $n);
+    $i = 1;
+    while (count($arr) > 1) {
+        if ($i % $m != 0) {
+            array_push($arr, $arr[$i - 1]);
+        }
+        unset($arr[$i - 1]);
+        $i++;
+    }
+    return $arr[$i - 1];
+})(11, 4);
+echo PHP_EOL;
+
+$tree = function ($arr, $pid) use (&$tree) {
+    $result = [];
+    foreach ($arr as $cate) {
+        if ($cate['pid'] == $pid) {
+            $cate['child'] = $tree($arr, $cate['id']);
+            $result[] = $cate;
+        }
+    }
+    return $result;
+};
+
+//print_r($tree($arr, 0));
+
+echo PHP_EOL;
+
+
+(function () {
+    $fp = fopen('lock.lock', 'a+');
+    if (flock($fp, LOCK_EX | LOCK_NB)) {
+        usleep(10);
+        fwrite($fp, time() . '.....' . PHP_EOL);
+        flock($fp, LOCK_UN);
+    } else {
+        echo 'get lock fail...' . PHP_EOL;
+    }
+})();
+echo PHP_EOL;
+
+echo uniqid(':::::', '1111');
+echo PHP_EOL;
+
+
+class Single
+{
+
+    private static $instance;
+
+    private function __construct()
+    {
+    }
+
+    private function __clone()
+    {
+    }
+
+    public static function getInstance()
+    {
+        if (!self::$instance instanceof self) {
+            self::$instance = new  self();
+        }
+        return self::$instance;
+    }
+}
+
+var_dump(Single::getInstance());
+var_dump(Single::getInstance());
+
+
+class Factory
+{
+    public static function getObj($type)
+    {
+        switch ($type) {
+            case 'Dog':
+                return new Dog();
+            case 'Cat':
+                return new Cat();
+        }
+    }
+}
+
+class Dog
+{
+    public function get()
+    {
+        echo 'I\'m dog ...';
+        echo PHP_EOL;
+    }
+}
+
+class Cat
+{
+    public function get()
+    {
+        echo 'I\'m cat ...';
+        echo PHP_EOL;
+    }
+}
+
+
+$obj = Factory::getObj('Dog');
+$obj->get();
+echo PHP_EOL;
+
+
+class Register
+{
+    private static $objects = [];
+
+    public static function _set($alias, $val)
+    {
+        self::$objects[$alias] = $val;
+    }
+
+    public static function _get($alias)
+    {
+        return self::$objects[$alias];
+    }
+
+    public static function _unset($alias)
+    {
+        unset(self::$objects[$alias]);
+    }
+}
+
+Register::_set('Dog', Factory::getObj('Dog'));
+Register::_set('Cat', Factory::getObj('Cat'));
+
+(Register::_get('Dog'))->get();
+(Register::_get('Cat'))->get();
+
+
+interface IOb
+{
+    public function update();
+}
+
+abstract class Ob
+{
+    public abstract function trigger();
+
+    private $observer = [];
+
+    public function register(IOb $ob)
+    {
+        $this->observer[] = $ob;
+    }
+
+    public function notify()
+    {
+        foreach ($this->observer as $ob) {
+            $ob->update();
+        }
+    }
+}
+
+class Ob1 implements IOb
+{
+    public function update()
+    {
+        echo 'ob1';
+        echo PHP_EOL;
+    }
+}
+
+class Ob2 implements IOb
+{
+    public function update()
+    {
+        echo 'ob2';
+        echo PHP_EOL;
+    }
+}
+
+class ObTest extends Ob
+{
+    public function trigger()
+    {
+        $this->notify();
+    }
+}
+
+//创建一个事件
+$event = new ObTest();
+//为事件增加旁观者
+$event->register(new Ob1());
+$event->register(new Ob2());
+//执行事件 通知旁观者
+$event->trigger();
+
+
+(function (\Closure $fun) {
+    echo ($fun())();
+    echo PHP_EOL;
+})(function () {
+    return function () {
+        return 'def';
+    };
+});
+
+
+
+
+
+
+
+
