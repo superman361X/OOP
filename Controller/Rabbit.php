@@ -2,38 +2,11 @@
 
 namespace Controller;
 
-use Models\RabbitMQ\DirectExchange;
-use Models\RabbitMQ\FanoutExchange;
 use Models\RabbitMQ\Sample;
-use \Models\RabbitMQ\Send;
-use \Models\RabbitMQ\Receive;
+use Models\RabbitMQ\Worker;
 
 class Rabbit extends Base
 {
-    public function fanoutTask()
-    {
-        $rabbit = new FanoutExchange();
-        $rabbit->task();
-    }
-
-    public function fanoutWorker()
-    {
-        $rabbit = new FanoutExchange();
-        $rabbit->worker();
-    }
-
-
-    public function directTask()
-    {
-        $rabbit = new DirectExchange();
-        $rabbit->task();
-    }
-
-    public function directWorker()
-    {
-        $rabbit = new DirectExchange();
-        $rabbit->worker();
-    }
 
     public function sampleSend()
     {
@@ -57,16 +30,16 @@ class Rabbit extends Base
 
     public function newTask()
     {
-        (new Sample())->newTask();
+        (new Worker())->newTask();
     }
 
     public function newWorker()
     {
-        (new Sample())->newWorker();
+        (new Worker())->newWorker();
     }
 
     public function newWorker2()
     {
-        (new Sample())->newWorker2();
+        (new Worker())->newWorker2();
     }
 }

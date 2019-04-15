@@ -1,37 +1,70 @@
 <?php
 
-class BaseApp
+class A
 {
     /**
      * 调用子类方法
      * @author ikmb email:ikmb@163.com
      * @version  创建时间：2011-7-8 下午11:19:17
      */
-    function _run_action()
+    protected function go()
     {
-        $action = "index";
-        $this->$action();
+        $this->index();
+    }
+
+    private function index(){
+        echo __METHOD__;
+        echo PHP_EOL;
     }
 }
 
-class DefaultApp extends BaseApp
+class B extends A
 {
 
     /**
      * 此方法将在父类中调用
      */
-    function index()
+    public function index()
     {
-        echo "DefaultApp->index() invoked";
+        echo __METHOD__;
+        echo PHP_EOL;
     }
 
-    function Go()
+    public function go()
     {
         //调用父类
-        parent::_run_action();
+        parent::go();
     }
 }
 
-$default = new DefaultApp();
+$default = new B();
 
-$default->Go();
+$default->go();
+
+
+class C
+{
+    private function get()
+    {
+        echo __METHOD__;
+        echo PHP_EOL;
+    }
+
+    public function go()
+    {
+        $this->get();
+    }
+}
+
+class D extends C
+{
+    public function get()
+    {
+        echo __METHOD__;
+        echo PHP_EOL;
+    }
+}
+
+
+$obj = new C();
+$obj->go();

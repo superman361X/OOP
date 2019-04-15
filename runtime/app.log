@@ -138,3 +138,17 @@
   ),
    'time' => 1555299555,
 ))
+2019-04-15 05:52:06 => stdClass::__set_state(array(
+   'file' => 'D:\\htdocs\\study\\Framework\\cli.php',
+   'line' => 18,
+   'function' => '__construct',
+   'class' => 'Controller\\Base',
+   'object' => 
+  stdClass::__set_state(array(
+  )),
+   'type' => '->',
+   'args' => 
+  array (
+  ),
+   'time' => 1555307527,
+))
