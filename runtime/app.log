@@ -1,4 +1,4 @@
-2019-04-15 03:03:46:stdClass::__set_state(array(
+2019-04-16 06:03:15 => stdClass::__set_state(array(
    'file' => 'D:\\htdocs\\study\\Framework\\cli.php',
    'line' => 18,
    'function' => '__destruct',
@@ -10,23 +10,9 @@
    'args' => 
   array (
   ),
-   'time' => 1555297425,
+   'time' => 1555394596,
 ))
-2019-04-15 03:04:27:array (
-  'file' => 'D:\\htdocs\\study\\Framework\\cli.php',
-  'line' => 18,
-  'function' => '__destruct',
-  'class' => 'Controller\\Base',
-  'object' => 
-  stdClass::__set_state(array(
-  )),
-  'type' => '->',
-  'args' => 
-  array (
-  ),
-  'time' => 1555297466,
-)
-2019-04-15 03:05:14 => stdClass::__set_state(array(
+2019-04-16 06:03:26 => stdClass::__set_state(array(
    'file' => 'D:\\htdocs\\study\\Framework\\cli.php',
    'line' => 18,
    'function' => '__destruct',
@@ -38,9 +24,23 @@
    'args' => 
   array (
   ),
-   'time' => 1555297513,
+   'time' => 1555394608,
 ))
-2019-04-15 03:07:28 => stdClass::__set_state(array(
+2019-04-16 06:47:40 => stdClass::__set_state(array(
+   'file' => '/data/www/study/Framework/index.php',
+   'line' => 16,
+   'function' => '__destruct',
+   'class' => 'Controller\\Base',
+   'object' => 
+  stdClass::__set_state(array(
+  )),
+   'type' => '->',
+   'args' => 
+  array (
+  ),
+   'time' => 1555397260,
+))
+2019-04-22 05:52:42 => stdClass::__set_state(array(
    'file' => 'D:\\htdocs\\study\\Framework\\cli.php',
    'line' => 18,
    'function' => '__destruct',
@@ -52,9 +52,9 @@
    'args' => 
   array (
   ),
-   'time' => 1555297605,
+   'time' => 1555554026,
 ))
-2019-04-15 03:07:57 => stdClass::__set_state(array(
+2019-04-22 05:52:42 => stdClass::__set_state(array(
    'file' => 'D:\\htdocs\\study\\Framework\\cli.php',
    'line' => 18,
    'function' => '__destruct',
@@ -66,89 +66,5 @@
    'args' => 
   array (
   ),
-   'time' => 1555297639,
-))
-2019-04-15 03:08:01 => stdClass::__set_state(array(
-   'file' => 'D:\\htdocs\\study\\Framework\\cli.php',
-   'line' => 18,
-   'function' => '__destruct',
-   'class' => 'Controller\\Base',
-   'object' => 
-  stdClass::__set_state(array(
-  )),
-   'type' => '->',
-   'args' => 
-  array (
-  ),
-   'time' => 1555297681,
-))
-2019-04-15 03:08:19 => stdClass::__set_state(array(
-   'file' => 'D:\\htdocs\\study\\Framework\\cli.php',
-   'line' => 18,
-   'function' => '__destruct',
-   'class' => 'Controller\\Base',
-   'object' => 
-  stdClass::__set_state(array(
-  )),
-   'type' => '->',
-   'args' => 
-  array (
-  ),
-   'time' => 1555297605,
-))
-2019-04-15 03:19:24 => stdClass::__set_state(array(
-   'file' => 'D:\\htdocs\\study\\Framework\\cli.php',
-   'line' => 18,
-   'function' => '__construct',
-   'class' => 'Controller\\Base',
-   'object' => 
-  stdClass::__set_state(array(
-  )),
-   'type' => '->',
-   'args' => 
-  array (
-  ),
-   'time' => 1555298364,
-))
-2019-04-15 03:38:53 => stdClass::__set_state(array(
-   'file' => 'D:\\htdocs\\study\\Framework\\cli.php',
-   'line' => 18,
-   'function' => '__construct',
-   'class' => 'Controller\\Base',
-   'object' => 
-  stdClass::__set_state(array(
-  )),
-   'type' => '->',
-   'args' => 
-  array (
-  ),
-   'time' => 1555299535,
-))
-2019-04-15 03:39:13 => stdClass::__set_state(array(
-   'file' => 'D:\\htdocs\\study\\Framework\\cli.php',
-   'line' => 18,
-   'function' => '__construct',
-   'class' => 'Controller\\Base',
-   'object' => 
-  stdClass::__set_state(array(
-  )),
-   'type' => '->',
-   'args' => 
-  array (
-  ),
-   'time' => 1555299555,
-))
-2019-04-15 05:52:06 => stdClass::__set_state(array(
-   'file' => 'D:\\htdocs\\study\\Framework\\cli.php',
-   'line' => 18,
-   'function' => '__construct',
-   'class' => 'Controller\\Base',
-   'object' => 
-  stdClass::__set_state(array(
-  )),
-   'type' => '->',
-   'args' => 
-  array (
-  ),
-   'time' => 1555307527,
+   'time' => 1555554040,
 ))

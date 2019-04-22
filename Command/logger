@@ -1,0 +1,19 @@
+#!/bin/sh
+#chkconfig: - 85 15
+#description: xxxx
+
+
+#chkconfig --add logger
+#chkconfig logger on
+
+case "$1" in
+    start)
+        echo "Starting php process "
+        cd /data/www/study/Framework
+        /usr/local/php/bin/php command.php Logger/logger &
+        ;;
+    stop)
+        ps -ef|grep command.php|grep -v grep|awk '{print $2}' | xargs kill -9
+        echo "Stoped"
+        ;;
+esac

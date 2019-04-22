@@ -10,21 +10,18 @@ class Rabbit extends Base
 
     public function sampleSend()
     {
-        $rabbit = new Sample();
-        $rabbit->send();
+        (new Sample())->send();
     }
 
 
     public function sampleReceive()
     {
-        $rabbit = new Sample();
-        $rabbit->receive();
+        (new Sample())->receive();
     }
 
     public function sampleReceive2()
     {
-        $rabbit = new Sample();
-        $rabbit->receive2();
+        (new Sample())->receive2();
     }
 
 

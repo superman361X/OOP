@@ -49,7 +49,7 @@ class Index extends Base
         Registry::set(Registry::EMAIL, Simple::Factory(Simple::TYPE_B));
         Registry::set(Registry::MESSAGE, Simple::Factory(Simple::TYPE_C));
 
-        dump(Registry::get());
+        print_r(Registry::get());
     }
 
     //注册树2
