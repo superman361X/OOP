@@ -469,10 +469,73 @@ $event->trigger();
     };
 });
 
+echo PHP_EOL;
+$w1 = 456;
+$w2 = &$w1;
+$w1 = 789;
+unset($w1);
+var_dump($w1);
+var_dump($w2);
+echo PHP_EOL;
 
 
+$l = 10;
+(function (&$k) {
+    print_r($k);
+    $k += 99;
+    echo PHP_EOL;
+})($l);
+var_dump($l);
+echo PHP_EOL;
 
 
+(function () {
+    global $l;
+    echo $l;
+})();
+echo PHP_EOL;
 
 
+(function () {
+    $fp = fopen('lock.lock', 'a+');
+    if (flock($fp, LOCK_EX | LOCK_NB)) {
+        echo 'do something...';
+        //sleep(5);
+        fwrite($fp, '...........' . PHP_EOL);
+        echo PHP_EOL;
+    } else {
+        echo 'please wait...';
+        echo PHP_EOL;
+    }
+    flock($fp, LOCK_UN);
+    fclose($fp);
+})();
 
+
+(function () {
+    $fp = fopen('lock.lock', 'r');
+    if (flock($fp, LOCK_SH)) {
+        //sleep(5);
+        $ret = '';
+        while (!feof($fp)) {
+            $ret .= fgets($fp);
+        }
+        echo PHP_EOL;
+    } else {
+        echo 'please wait...';
+        echo PHP_EOL;
+    }
+    flock($fp, LOCK_UN);
+    fclose($fp);
+    echo $ret;
+})();
+
+$s1 = 'ddd';
+$s2 = 'fff';
+echo $s1+$s2;
+echo PHP_EOL;
+
+echo strcmp($s1,'ddd');echo PHP_EOL;
+
+$j = '1234';
+var_dump($j{1});
