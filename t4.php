@@ -48,3 +48,13 @@ foreach ($arr as $v){
 }
 echo $new;
 echo PHP_EOL;
+
+
+
+
+
+set_error_handler(function ($code,$msg){
+    echo  $msg;exit;
+},E_ALL);
+
+trigger_error("A custom error has been triggered");
