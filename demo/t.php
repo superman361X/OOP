@@ -539,3 +539,6 @@ echo strcmp($s1,'ddd');echo PHP_EOL;
 
 $j = '1234';
 var_dump($j{1});
+
+
+echo PHP_EOL;

@@ -4,12 +4,7 @@
     "phpmailer/phpmailer": "^6.0",
     "firebase/php-jwt": "^5.0",
 	"pda/pheanstalk": "^3.1",
-    "predis/predis": "^1.1"
-  },
-  "repositories": {
-    "packagist": {
-      "type": "composer",
-      "url": "https://packagist.org"
-    }
+    "predis/predis": "^1.1",
+    "nesbot/carbon": "^1.37"
   }
 }
